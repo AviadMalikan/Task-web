@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Todo MVC</title>
+</head>
+
+<body onload="onInit()">
+    <h1>Todo MVC</h1>
+
+    <section class="todo-filter">
+        <select onchange="onSetFilter(this.value)">
+            <option value="all">All</option>
+            <option value="done">Done</option>
+            <option value="active">Active</option>
+        </select>
+
+        <select onchange="onSetSort(this.value)">
+            <option value="time">Date</option>
+            <option value="txt">Text</option>
+            <option value="importance">Importance</option>
+        </select>
+    </section>
+
+
+    <!-- <option value="high-first">Importance high to low</option>
+            <option value="low-first">Importance low to high</option>
+            <option value="name">By text</option>
+            <option value="created-first">Created first</option>
+            <option value="created-last">Created last</option> -->
+
+
+    <div class="todo-list-container">
+        <ul class="todo-list">
+        </ul>
+    </div>
+
+    <form onsubmit="onAddTodo(event)">
+        <input type="text" name="todo-txt" placeholder="What todo?" />
+        <button class="add">Add</button>
+    </form>
+
+    <section class="todo-stat">
+        <h4>Total tasks: <span class="total-todos"></span> </h4>
+        <h4>Active tasks: <span class="active-todos"></span> </h4>
+    </section>
+
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/todo-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
