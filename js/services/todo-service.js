@@ -40,10 +40,8 @@ function setFilter(filterBy) {
 }
 
 function setSort(sortedBy) {
-
     _sortedBy(sortedBy)
     console.log('gTodos: ', gTodos)
-
 }
 
 
