@@ -7,7 +7,7 @@ function renderTodos() {
 
     const todos = getTodosForDisplay()
     const strHTMLs = todos.map(todo => `
-    <li class="${(todo.isDone) ? "done" : ""}"
+    <li class="${(todo.isDone) ? "done" : ""} ${getImportanceClass(todo.importance)}"
          onclick="onToggleTodo('${todo.id}')">
          <span class="task">${todo.txt}</span>
         <button onclick="onRemoveTodo(event,'${todo.id}')">x</button> 
@@ -22,10 +22,11 @@ function renderTodos() {
 function onAddTodo(ev) {
     ev.preventDefault()
     const elTxt = document.querySelector('input[name="todo-txt"]')
+    const elImpotence = document.querySelector('input[name=todo-importance')
+    const importance = +elImpotence.value
     const txt = elTxt.value
     if (txt === '') return
-    // console.log('txt', txt)
-    addTodo(txt)
+    addTodo(txt, importance)
     elTxt.value = ''
     renderTodos()
 }

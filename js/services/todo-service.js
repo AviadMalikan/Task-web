@@ -17,8 +17,8 @@ function getTodosForDisplay() {
         !todo.isDone && gFilterBy === 'active')
 }
 
-function addTodo(txt) {
-    const todo = _createTodo(txt)
+function addTodo(txt, importance) {
+    const todo = _createTodo(txt, importance)
     gTodos.unshift(todo)
     saveToStorage(STORAGE_KEY, gTodos)
 }
@@ -44,6 +44,13 @@ function setSort(sortedBy) {
     console.log('gTodos: ', gTodos)
 }
 
+function getImportanceClass(importance) {
+    switch (importance) {
+        case 1: return 'not-important'
+        case 2: return 'important'
+        case 3: return 'very-important'
+    }
+}
 
 function getTotalTodos() {
     if (!gTodos.length) return 'No tasks todo'
@@ -67,19 +74,20 @@ function _createTodos() {
     }
 }
 
-function _createTodo(txt) {
+function _createTodo(txt, importance = _getRandomInt(1, 3)) {
+
     return {
         id: _makeId(),
-        txt: txt,
+        txt,
         isDone: false,
         time: Date.now(),
-        importance: _getRandomInt(1, 3),
+        importance,
     }
 }
 
 
 // UTILS---------------------------------------------------
-function _sortedBy(value) {
+function _sortedBy(value = 'time') {
     console.log('value: ', value)
 
     switch (value) {

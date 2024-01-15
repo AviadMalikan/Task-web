@@ -8,9 +8,9 @@ body {
 button {
     margin-left: 5px;
     border-radius: 7px;
-    border: 1px lightgray solid;
+    border: 0px lightgray solid;
     color: lightgray;
-    background-color: rgb(114, 171, 194);
+    background-color: rgba(105, 105, 105, 0.241);
     transition: 0.5s;
 }
 
@@ -26,13 +26,15 @@ h4 {
 
 button:hover {
     cursor: pointer;
-    background-color: lightgray;
-    color: rgb(114, 171, 194);
-    border: 2px rgb(114, 171, 194) solid;
+    background-color: rgba(254, 254, 254, 0.225);
+    color: gray;
+    border: 0px;
 }
 
 ul {
+    padding: 0;
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
     justify-content: space-around;
 }
@@ -40,7 +42,9 @@ ul {
 li {
     border: 1px rgb(131, 131, 131) solid;
     border-radius: 10px;
-    width: 100px;
+    width: 250px;
+    max-width: 250px;
+    min-width: 150px;
     margin: 5px;
     display: flex;
     flex-direction: column;
@@ -85,4 +89,16 @@ li>* {
 
 .todo-stat span {
     font-size: 20px;
+}
+
+.not-important {
+    background-color: rgba(144, 238, 144, 0.5);
+}
+
+.important {
+    background-color: rgba(255, 251, 224, 0.5);
+}
+
+.very-important {
+    background-color: rgb(240, 128, 128, 0.5);
 }
