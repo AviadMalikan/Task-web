@@ -56,6 +56,10 @@ li>* {
     margin: 10px
 }
 
+li>button {
+    position: absolute;
+}
+
 .done {
     transition: opacity 1s;
     color: rgb(131, 131, 131);
