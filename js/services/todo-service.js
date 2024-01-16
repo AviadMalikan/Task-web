@@ -18,6 +18,7 @@ function getTodosForDisplay() {
 }
 
 function addTodo(txt, importance) {
+    if (importance === 0) importance = 1
     const todo = _createTodo(txt, importance)
     gTodos.unshift(todo)
     saveToStorage(STORAGE_KEY, gTodos)

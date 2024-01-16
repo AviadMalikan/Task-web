@@ -23,9 +23,9 @@ function onAddTodo(ev) {
     ev.preventDefault()
     const elTxt = document.querySelector('input[name="todo-txt"]')
     const elImpotence = document.querySelector('input[name=todo-importance')
-    const importance = +elImpotence.value
     const txt = elTxt.value
     if (txt === '') return
+    const importance = +elImpotence.value
     addTodo(txt, importance)
     elTxt.value = ''
     renderTodos()
